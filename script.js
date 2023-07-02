@@ -87,7 +87,7 @@ let game = () => {
     let userChoice = ""
     let winner = ""
 
-    while (userScore != 5 && computerScore != 5) {
+    while (userScore != 3 && computerScore != 3) {
         computerChoice = getComputerChoice()
         userChoice = getUserChoice()
         printChoices(round, computerChoice, userChoice)
