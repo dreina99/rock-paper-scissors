@@ -1,22 +1,11 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"]
+const btns = document.querySelectorAll('button')
 
 let getComputerChoice = () => {
     let randomIndex = Math.floor(Math.random() * choices.length)
     return choices[randomIndex]
 }
 
-let getUserChoice = () => {
-    let userChoice = prompt("Rock, paper, or scissors?")
-
-    while (true) {
-        if (choices.includes(userChoice.toUpperCase())) {
-            break
-        }
-        alert("Please enter rock, paper, or scissors")
-        userChoice = prompt("Rock, paper, or scissors?")
-    }
-    return userChoice.toUpperCase()
-}
 
 let printChoices = (round, computerChoice, userChoice) => {
     console.log(`Round ${round}.`)
@@ -79,30 +68,27 @@ let roundResults = (computerScore, userScore) => {
     console.log(`User Score ${userScore}`)
 }
 
-let game = () => {
+btns.forEach(btn => btn.addEventListener('click', (e) => playRound(e.target.id.toUpperCase())))
+
+let playRound = (userChoice) => {
     let userScore = 0
     let computerScore = 0
     let round = 1
     let computerChoice = ""
-    let userChoice = ""
     let winner = ""
 
-    while (userScore != 3 && computerScore != 3) {
-        computerChoice = getComputerChoice()
-        userChoice = getUserChoice()
-        printChoices(round, computerChoice, userChoice)
+    computerChoice = getComputerChoice()
+    printChoices(round, computerChoice, userChoice)
 
-        winner = determineRound(computerChoice, userChoice)
-        if (winner == "user")
-            userScore += 1
-        else if (winner == "computer")
-            computerScore += 1
+    winner = determineRound(computerChoice, userChoice)
+    if (winner == "user")
+        userScore += 1
+    else if (winner == "computer")
+        computerScore += 1
 
-        round += 1
-        roundResults(computerScore, userScore)
-        console.log("\n")
-    }
-    
-    displayResults(userScore)
+    round += 1
+    roundResults(computerScore, userScore)
+    console.log("\n")
+
     return
 }
