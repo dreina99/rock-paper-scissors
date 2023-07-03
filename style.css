@@ -1,16 +1,16 @@
 html {
     background-color: rgb(235, 184, 227);
     color: #008b95;
+    
 }
 
 body {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-}
-
-h1, h2 {
-    margin: 0
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 h1 {
@@ -21,11 +21,15 @@ h2 {
     margin: 0px 0px 20px;
 }
 
+p {
+    font-weight: bold;
+}
+
 .button-container {
     display: flex;
     justify-content: center;
     gap: 35px;
-    margin-left: 15px;
+    margin-left: 2em;
 }
 
 button:hover {
@@ -39,6 +43,8 @@ button {
     padding: 10px 20px;
     border-radius: 10px;
     color: #008b95;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
 .results {
