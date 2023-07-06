@@ -29,7 +29,7 @@ p {
     display: flex;
     justify-content: center;
     gap: 35px;
-    margin-left: 2em;
+    margin-left: 1.6em;
 }
 
 button:hover {
